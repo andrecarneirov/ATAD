@@ -1,0 +1,17 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "PowerShell (MinGW)": {
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "args": [
+                "-NoExit",
+                "-Command",
+                "& {",
+                "    $env:Path = \"c:\\msys64\\mingw64\\bin;$env:Path\";",
+                "    Set-Alias -Name make -Value \"c:\\msys64\\mingw64\\bin\\mingw32-make.exe\" -Scope Global;",
+                "    Write-Output \"Using MinGW binaries from c:\\msys64\\mingw64\\bin\"",
+                "}"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell (MinGW)"
+}
