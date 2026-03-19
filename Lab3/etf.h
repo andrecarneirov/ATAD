@@ -77,3 +77,34 @@ void etfPrintTable(ETF arr[], int arrLength);
  * @return The number of ETFs successfully imported, or -1 if an error occurs (e.g., file not found).
  */
 int etfImport(const char* filename, ETF arr[], int arrLength);
+
+/**
+ * @brief Searches for an ETF by ticker symbol.
+ * @param ticker [in] ticker to search for
+ * @param arr [in] array of ETFs
+ * @param arrLength [in] number of elements
+ * @return index of the found ETF, or -1 if not found
+ */
+int etfSearchByTicker(const char ticker[], ETF arr[], int arrLength);
+
+/**
+ * @brief Selects the ETF with the best 2024 performance.
+ * @param arr [in] array of ETFs
+ * @param arrLength [in] number of elements
+ * @return index of the best ETF, or -1 if array is empty
+ */
+int etfSelectBest(ETF arr[], int arrLength);
+
+/**
+ * @brief Sorts ETFs by 2024 performance in descending order.
+ * @param arr [in/out] array of ETFs
+ * @param arrLength [in] number of elements
+ */
+void etfSortByPerformance(ETF arr[], int arrLength);
+
+/**
+ * @brief Sorts ETFs by ticker symbol in ascending order (A to Z).
+ * @param arr [in/out] array of ETFs
+ * @param arrLength [in] number of elements
+ */
+void etfSortByTicker(ETF arr[], int arrLength);

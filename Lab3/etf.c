@@ -80,3 +80,43 @@ int etfImport(const char* filename, ETF arr[], int arrLength) {
 
     return count;
 }
+
+int etfSearchByTicker(const char ticker[], ETF arr[], int arrLength) {
+    for (int i = 0; i < arrLength; i++) {
+        if (strcmp(arr[i].ticker, ticker) == 0) return i;
+    }
+    return -1;
+}
+
+int etfSelectBest(ETF arr[], int arrLength) {
+    if (arrLength <= 0) return -1;
+    int best = 0;
+    for (int i = 1; i < arrLength; i++) {
+        if (arr[i].var2024 > arr[best].var2024) best = i;
+    }
+    return best;
+}
+
+void etfSortByPerformance(ETF arr[], int arrLength) {
+    for (int i = 0; i < arrLength - 1; i++) {
+        for (int j = i + 1; j < arrLength; j++) {
+            if (arr[j].var2024 > arr[i].var2024) {
+                ETF temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+void etfSortByTicker(ETF arr[], int arrLength) {
+    for (int i = 0; i < arrLength - 1; i++) {
+        for (int j = i + 1; j < arrLength; j++) {
+            if (strcmp(arr[j].ticker, arr[i].ticker) < 0) {
+                ETF temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
