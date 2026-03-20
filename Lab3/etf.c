@@ -9,14 +9,28 @@ ETF etfCreate(const char ticker[], const char isin[], const char name[], double 
     const char distribution[], const char replication[], int fundSize, double var2024) {
 
     ETF etf = {};
-    strncpy(etf.ticker, ticker, 4);              etf.ticker[4] = '\0';
-    strncpy(etf.isin, isin, 12);                 etf.isin[12] = '\0';
-    strncpy(etf.name, name, 80);                 etf.name[80] = '\0';
+
+    strncpy(etf.ticker, ticker, 4);
+    etf.ticker[4] = '\0';
+
+    strncpy(etf.isin, isin, 12);
+    etf.isin[12] = '\0';
+
+    strncpy(etf.name, name, 80);
+    etf.name[80] = '\0';
+
     etf.ter = ter;
-    strncpy(etf.distribution, distribution, 20); etf.distribution[20] = '\0';
-    strncpy(etf.replication, replication, 20);   etf.replication[20] = '\0';
+
+    strncpy(etf.distribution, distribution, 20);
+    etf.distribution[20] = '\0';
+
+    strncpy(etf.replication, replication, 20);
+    etf.replication[20] = '\0';
+
     etf.fundSize = fundSize;
+
     etf.var2024 = var2024;
+
     return etf;
 }
 
@@ -83,16 +97,22 @@ int etfImport(const char* filename, ETF arr[], int arrLength) {
 
 int etfSearchByTicker(const char ticker[], ETF arr[], int arrLength) {
     for (int i = 0; i < arrLength; i++) {
-        if (strcmp(arr[i].ticker, ticker) == 0) return i;
+        if (strcmp(arr[i].ticker, ticker) == 0) {
+            return i;
+        }
     }
     return -1;
 }
 
 int etfSelectBest(ETF arr[], int arrLength) {
-    if (arrLength <= 0) return -1;
+    if (arrLength <= 0) {
+        return -1;
+    }
     int best = 0;
     for (int i = 1; i < arrLength; i++) {
-        if (arr[i].var2024 > arr[best].var2024) best = i;
+        if (arr[i].var2024 > arr[best].var2024) {
+            best = i;
+        }
     }
     return best;
 }
