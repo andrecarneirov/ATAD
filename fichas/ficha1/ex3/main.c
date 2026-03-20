@@ -1,11 +1,18 @@
-#include <stdio.h> 
-#include <stdlib.h>
-#include "input.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include "arrays.h"
 
 int main() {
+    int values[] = {0, 1, 2, 7, 10, 14, 17};
+    int length = 7;
 
-    /* Program code. */
-    printf("I do nothing at this moment.\n");
+    printf("Array: ");
+    arrayPrint(values, length);
 
-    return EXIT_SUCCESS;
+    printf("Even count: %d\n", arrayCountEven(values, length));
+    printf("Sum: %d\n", arraySum(values, length));
+    printf("Contains 7? %s\n", arrayContains(7, values, length) ? "Yes" : "No");
+    printf("Contains 5? %s\n", arrayContains(5, values, length) ? "Yes" : "No");
+
+    return 0;
 }
