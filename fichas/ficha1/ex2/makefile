@@ -8,8 +8,8 @@ executable = prog
 rm = rm
 
 default:
-	gcc $(flags) -o $(executable) main.c input.c
+	gcc $(flags) -o $(executable) main.c input.c -lm
 debug:
-	gcc $(flags) -o $(executable) -g main.c input.c
+	gcc $(flags) -o $(executable) -g main.c input.c -lm
 clean:
 	$(rm) -f $(executable)
